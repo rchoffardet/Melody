@@ -1,4 +1,5 @@
-﻿using Melody.Routing;
+﻿using Melody.Io;
+using Melody.Routing;
 using Melody.Samples.HelloWorld.App.Greeting;
 
 namespace Melody.Samples.HelloWorld
@@ -13,9 +14,8 @@ namespace Melody.Samples.HelloWorld
 
         protected override void Routes(RouterBuilder app)
         {
+            app.Get("/hello", () => new Response("Hello World!"));
             app.Get<Greet, string>("/");
-            app.Get<Greet, string>("/hello");
         }
-
     }
 }
